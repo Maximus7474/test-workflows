@@ -30,13 +30,13 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
           changelog: ./changelogs
           ignore_patterns: |
-            .*
+            **/.**
             **/*.md
             *.yml
             README.*
 
-      - name: Upload Changelog Artifact
-        uses: actions/upload-artifact@v4
+      - name: Commit & Push changes
+        uses: actions-js/push@master
         with:
-          name: ${{ github.ref_name }}-file-changelog
-          path: ./changelogs/${{ github.ref_name }}.md
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "Added changelog for ${{ github.ref_name }}"
