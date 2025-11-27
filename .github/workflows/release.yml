@@ -31,9 +31,7 @@ jobs:
           changelog: ./changelogs
           ignore_patterns: |
             **/.**
-            **/*.md
             *.yml
-            README.*
 
       - name: Commit & Push changes
         uses: actions-js/push@master

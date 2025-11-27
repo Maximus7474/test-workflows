@@ -4,5 +4,4 @@
 
 Yipeeee!
 
-> [!NOTE]
-> Loooooook
+<!-- I've got no idea what to say if you're reading this, go touch some grass I guess -->
