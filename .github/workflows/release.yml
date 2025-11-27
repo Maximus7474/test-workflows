@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  create-changelog:
+    name: Generate Changelog
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Changelog Directory
+        run: mkdir -p ./changelogs
+
+      - name: Generate File Changelog and Post to Discord
+        uses: Maximus7474/fivem-file-changelog-action@v0.2.0
+        with:
+          changelog_filename: ${{ github.ref_name }}.md
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          changelog: ./changelogs
+          ignore_patterns: |
+            .*
+            **/*.md
+            *.yml
+            README.*
+
+      - name: Upload Changelog Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.ref_name }}-file-changelog
+          path: ./changelogs/${{ github.ref_name }}.md
