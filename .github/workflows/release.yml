@@ -23,7 +23,7 @@ jobs:
         run: mkdir -p ./changelogs
 
       - name: Generate File Changelog and Post to Discord
-        uses: Maximus7474/fivem-file-changelog-action@v0.2.3
+        uses: Maximus7474/fivem-file-changelog-action@v0.2.4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           changelog_filename: ${{ github.ref_name }}.md
