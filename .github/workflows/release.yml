@@ -30,7 +30,8 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
           changelog: ./changelogs
           ignore_patterns: |
-            .*/*|.*
+            .*/**  
+            .*
             *.yml
             changelogs/*
 
