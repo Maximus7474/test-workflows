@@ -6,3 +6,6 @@ Yipeeee!
 
 > [!NOTE]
 > Loooooook
+
+> [!WARN]
+> Loooooook
