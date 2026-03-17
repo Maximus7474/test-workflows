@@ -1,0 +1,17 @@
+{
+  "name": "test-workflows",
+  "module": "index.ts",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+	"scripts": {
+		"typecheck": "tsc --noEmit",
+		"build": "bun run build.ts"
+	},
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
