@@ -1,4 +1,4 @@
-name: PR Validation
+name: PR Changes Validation
 
 on:
   pull_request:
@@ -10,16 +10,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Check PR Description Length
-        env:
-          PR_BODY: ${{ github.event.pull_request.body }}
-        run: |
-          # Checks if body is null or shorter than 20 characters
-          if [ -z "$PR_BODY" ] || [ ${#PR_BODY} -lt 20 ]; then
-            echo "Error: PR description is too short (minimum 20 characters)."
-            exit 1
-          fi
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
